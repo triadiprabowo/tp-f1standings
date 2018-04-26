@@ -5,13 +5,14 @@
 	display flex
 	align-items center
 	flex-wrap wrap
+	justify-content flex-start
+	flex-direction row
 	
 	.card
 		display block
-		width 22%
+		flex 1 1 22%
 		box-sizing border-box
-		padding $mp_px_sm $mp_px_md $mp_px_md
-		margin $mp_px_nm 1.5%
+		margin $mp_px_nm $mp_px_sm
 		background-color $card_color_bg
 		border-radius 8px
 		box-shadow 0 0 5px 3px rgba(0,0,0,0.055)
@@ -25,15 +26,19 @@
 		
 		.card__header
 			position relative
-			padding-bottom $mp_px_nm - 5px
-			padding-top $mp_px_sm
+			padding $mp_px_nm $mp_px_md
 			border-bottom 1px solid #dfdfdf
+			background-color $card_color_header
+			border-radius 8px 8px 0 0
 			
 			*
 				font-size $card_size_title
 				font-weight bold
 				color $card_color_title
-				margin-bottom 0
+				margin-bottom 0				
+			
+			.card__title				
+				font-size $card_size_title * 1.25
 				
 				// &:link
 				// 	color $color_base_link-normal
@@ -57,7 +62,7 @@
 
 		.card__footer
 			position relative
-			padding $mp_px_sm 0
+			padding $mp_px_md
 			
 			&.align--center
 				text-align center
@@ -67,4 +72,20 @@
 				color $card_color_subtitle
 				font-size $card_size_subtitle
 				font-weight bold
+		
+		.card__action
+			border-radius 8px
+			border 1px solid rgba(255,2555,255,0.4)
+			padding $mp_px_xs $mp_px_nm
+			vertical-align middle
+			margin-top -2px
+			transition all .2s ease-in-out
+			font-size $card_size_title - 4px
+			
+			
+			&.pos--right
+				float right
+				
+			&:hover
+				background-color rgba(255,2555,255,0.2)
 				

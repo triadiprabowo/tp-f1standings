@@ -1,19 +1,42 @@
-<div class="wrapper__outer">
-	<div class="tp__card-wrapper">
-		<div class="card card--actionable" *ngFor="let item of $vm.champions" (click)="wcDriver(item).detail()">
-			<div class="card__header">
-				<a class="card__title" [routerLink]="'/seasons/'+wcDriver(item).getSeason">F1 Season {{wcDriver(item).getSeason}} World Champion</a>
-			</div>
+<!-- Include public header -->
+<public-header></public-header>
 
-			<div class="card__body align--center">
-				<img src="/assets/trophy2.png" class="tp__image size--80h" />
-			</div>
-
-			<div class="card__footer align--center">
-				<a class="card__subtitle" [routerLink]="'/seasons/'+wcDriver(item).getSeason">{{wcDriver(item).getFullName}}</a>
+<div class="wrapper__outer has--header">
+	<section class="block__headline bg--style-1">
+		<div class="wrapper__inner">
+			<div class="headline__content">
+				<h1 class="headline">Find Information Around<br>Formula 1 Grand Prix</h1>
+				<h4 class="subheadline">TP Formula One Portal</h4>
 			</div>
 		</div>
-	</div>
+	</section>
+	
+	<section class="block bg--white" *ngIf="$vm.isFetched">
+		<div class="wrapper__inner">
+			<h2 class="block__title">Formula 1 World Champion Highlight (2005-2015)</h2>
+
+			<div class="tp__card-wrapper">
+				<div class="card card--actionable" *ngFor="let item of $vm.champions" (click)="wcDriver(item).detail()">
+					<div class="card__header align--center">
+						<a class="card__title" [routerLink]="'/seasons/'+wcDriver(item).getSeason">{{wcDriver(item).getSeason}}</a>
+
+						<a class="card__action pos--right" [routerLink]="'/seasons/'+wcDriver(item).getSeason">Detail</a>
+					</div>
+
+					<div class="card__body align--center">
+						<img src="/assets/trophy2.png" class="tp__image size--80h" />
+					</div>
+
+					<div class="card__footer align--center">
+						<a class="card__subtitle" [routerLink]="'/seasons/'+wcDriver(item).getSeason">{{wcDriver(item).getFullName}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<tp-preloader *ngIf="$vm.isFetching"></tp-preloader>
 </div>
+
+<!-- Include footer -->
+<public-footer></public-footer>

@@ -1,0 +1,41 @@
+@import '../+base/_constant';
+
+.tp__header
+	position fixed
+	height 65px
+	overflow hidden
+	width 100%
+	z-index 10
+	top 0 
+	left 0
+	background-color $color_base_header
+	box-shadow 0 2px 3px 1px rgba(0,0,0,0.2)
+	
+	.header__left
+		position relative
+		float left
+		display block
+		vertical-align middle
+		
+		h1
+			font-size $size_base_title
+			color $color_base_white
+	
+	.navigation
+		position relative
+		float right
+		display block
+		vertical-align middle
+		margin-top $mp_px_nm
+		
+		a 
+			&:link
+				font-size $size_base_subtitle
+				color $color_base_white
+				margin-left $mp_px_lg
+			
+			&:visited
+				color $color_base_white
+				
+			&:hover
+				color $color_base_link-normal
