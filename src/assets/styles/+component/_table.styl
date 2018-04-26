@@ -1,0 +1,67 @@
+@import '../+base/_constant';
+
+.tp__table
+	position relative
+	width 100%
+	border-collapse collapse
+	
+	thead		
+		th
+			font-size $size_base_table-th
+			font-weight bold
+			padding $mp_px_nm $mp_px_sm
+			width 20%
+
+	tr 
+		td 
+			padding $mp_px_nm $mp_px_sm
+			
+			&.bold
+				font-weight bold
+			
+			*
+				vertical-align middle
+				
+			img
+				margin-right $mp_px_xs
+		
+		&.row--active
+			td, td *
+				color $color_base_active
+				font-weight bold
+				
+	&.table--col-2
+		display table
+		
+		tr
+			td:not(:last-child)
+				width 20%
+				
+			td:last-child
+				width 80%
+			
+	&.table--text-center
+		th, td
+			text-align center
+			
+	&.table--row-bordered
+		
+		tr
+			border-bottom 1px solid $color_base_border-table
+			
+	&.table--bordered
+		
+		border-top 1px solid $color_base_border-table
+		
+		thead
+			th
+				border-bottom 1px solid $color_base_border-table
+				
+	&.table--colored
+		
+		tr			
+			&:nth-child(odd)
+				background-color $color_base_table-odd
+			
+			&:nth-child(even)
+				background-color $color_base_table-even

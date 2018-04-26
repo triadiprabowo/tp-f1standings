@@ -7,7 +7,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 
 export interface APIModel {
 	seasons: any[],
-	winners: any[],
+	winners: any,
 	champions: any[],
 	isFetching: boolean,
 	isFetched: boolean
@@ -22,7 +22,7 @@ export class CoreAPIService {
 
 	constructor(private http:HttpClient, private $constant:AppConstant) {
 		this.store = {
-			winners: [],
+			winners: null,
 			seasons: [],
 			champions: [],
 			isFetching: false,
@@ -31,8 +31,17 @@ export class CoreAPIService {
 
 		this.$subject = <BehaviorSubject<APIModel>>new BehaviorSubject({});
 		this.data = this.$subject.asObservable();
+
+		// init store data
+		this.$subject.next(this.store);
 	}
 
+	/**
+	 ** @description update subject data store
+	 ** @method $dataStore
+	 ** @param object reference to store interface
+	 ** @return [object Object]
+	 */
 	public $dataStore(obj:any) {
 		let newObj = (<any>Object).assign(this.store, obj);
 
@@ -46,7 +55,13 @@ export class CoreAPIService {
 		}
 	}
 
-	public getSeasonChampion(startYear:number, endYear:number) {
+	/**
+	 ** @description get season champions (driver) from selected season
+	 ** @method getSeasonChampion
+	 ** @param startYear (start season year), endYear (end season year)
+	 ** @return void
+	 */
+	public getSeasonChampion(startYear:number, endYear:number): void {
 		let requests = [];
 
 		this.$dataStore({ isFetching: true, isFetched: false, champions: [] }).update();
@@ -67,5 +82,25 @@ export class CoreAPIService {
 			}
 		);
 
+	}
+
+	/**
+	 ** @description get race results (driver) from selected season and position
+	 ** @method getRaceResults
+	 ** @param seasons (season year), position (driver position)
+	 ** @return void
+	 */
+	public getRaceResults(seasons:number, position:number): void {
+		this.$dataStore({ isFetching: false, isFetched: false, winners: null }).update();
+
+		this.http.get(`${this.$constant.apiURL}/${seasons}/results/${position}.json`)
+		.subscribe(
+			(results:any) => {
+				this.$dataStore({ isFetching: false, isFetched: true, winners: results.MRData }).update();
+			},
+			(err:HttpErrorResponse) => {
+				this.$dataStore({ isFetching: false, isFetched: false, winners: null }).update();
+			}
+		);
 	}
 }

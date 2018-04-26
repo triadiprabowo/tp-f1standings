@@ -9,9 +9,11 @@ import { Routes } from '@angular/router';
 /**
  ** -----------------------------------------------------------
  ** Export config of RouterList
+ ** Lazy-load module enabled
  ** @return Array()
  ** -----------------------------------------------------------
 */
 export const RouterList: Routes = [
-	{ path: '', loadChildren: 'app/pages/index/index.module#IndexModule' }
+	{ path: '', redirectTo: 'seasons', pathMatch: 'full' },
+	{ path: 'seasons', loadChildren: 'app/pages/seasons/seasons.module#SeasonsModule' }
 ]

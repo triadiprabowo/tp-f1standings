@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndexComponent } from './index.component';
+import { SeasonsComponent } from './seasons.component';
 
 describe('IndexComponent', () => {
-	let component: IndexComponent;
-	let fixture: ComponentFixture<IndexComponent>;
+	let component: SeasonsComponent;
+	let fixture: ComponentFixture<SeasonsComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [ IndexComponent ]
+			declarations: [ SeasonsComponent ]
 		})
 		.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(IndexComponent);
+		fixture = TestBed.createComponent(SeasonsComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

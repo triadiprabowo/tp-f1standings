@@ -1,0 +1,19 @@
+<div class="wrapper__outer">
+	<div class="tp__card-wrapper">
+		<div class="card card--actionable" *ngFor="let item of $vm.champions" (click)="wcDriver(item).detail()">
+			<div class="card__header">
+				<a class="card__title" [routerLink]="'/seasons/'+wcDriver(item).getSeason">F1 Season {{wcDriver(item).getSeason}} World Champion</a>
+			</div>
+
+			<div class="card__body align--center">
+				<img src="/assets/trophy2.png" class="tp__image size--80h" />
+			</div>
+
+			<div class="card__footer align--center">
+				<a class="card__subtitle" [routerLink]="'/seasons/'+wcDriver(item).getSeason">{{wcDriver(item).getFullName}}</a>
+			</div>
+		</div>
+	</div>
+
+	<tp-preloader *ngIf="$vm.isFetching"></tp-preloader>
+</div>

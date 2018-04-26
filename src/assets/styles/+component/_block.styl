@@ -1,0 +1,28 @@
+@import '../+base/_constant';
+
+.block
+	position relative
+	display block
+	width 100%
+	margin $mp_px_md auto
+	overflow hidden
+	
+	&.block--center		
+		text-align center
+		
+		*
+			text-align center
+			
+	&.block--middle
+		margin-top 30vh
+	
+	.block__subtitle
+		font-weight bold
+		font-size $size_base_subtitle
+	
+	.block__title 
+		font-weight bold
+		font-size $size_base_title
+		text-transform uppercase
+		margin-bottom $mp_px_md
+		color $color_base_title

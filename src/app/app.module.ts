@@ -17,7 +17,7 @@ import { CoreAPIService } from './shared/services/core-api.service';
 		BrowserModule,
 		CommonModule,
 		HttpClientModule,
-		RouterModule.forRoot(RouterList)
+		RouterModule.forRoot(RouterList, { initialNavigation: 'enabled' })
 	],
 	providers: [AppConstant, CoreAPIService],
 	bootstrap: [AppComponent]

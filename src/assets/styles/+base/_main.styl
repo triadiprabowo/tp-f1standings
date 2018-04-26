@@ -1,0 +1,29 @@
+@import '_constant';
+
+html, 
+html a
+	-webkit-font-smoothing antialiased
+	text-shadow 1px 1px 1px rgba(0, 0, 0, 0.004)
+
+*
+	font-family sans-serif, 'Arial'
+	font-size $size_base_font
+	font-weight 400
+
+body
+	position relative
+	overflow-x hidden
+	min-height 100vh
+	background-color $color_base_body
+	
+a
+	&:link
+		color $color_base_link-normal
+		transition all .2s ease-in-out
+		text-decoration none
+	
+	&:visited
+		color $color_base_link-normal
+	
+	&:hover
+		color $color_base_link-hover
