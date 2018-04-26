@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.styl']
+	selector: 'app-root',
+	template: `
+		<!-- Set router outlet -->
+		<router-outlet></router-outlet>
+	`
 })
 export class AppComponent {
-  title = 'app';
+	constructor() {
+
+	}
 }
