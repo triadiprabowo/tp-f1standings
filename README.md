@@ -1,6 +1,9 @@
 # Formula 1 Highlight Project
+![Build Success](https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg) [![Angular2](https://img.shields.io/badge/build-angular4-green.svg)](https://angular.io)
 
 ## [Live Demo](https://f1highlight.triadiprabowo.com)
+
+Formula 1 highlight coding challenge project, using open API by  [Ergast Developer API](https://ergast.com/mrd/). The Ergast Developer API is an experimental web service which provides a historical record of motor racing data for non-commercial purposes.
 
 Project built using Angular-CLI 1.3.0 and Angular 4, this project using Karma and Jasmine as unit testing, lazy-load design pattern, AoT compilation, shared modules/components to be reusable and reactive programming. 
 
