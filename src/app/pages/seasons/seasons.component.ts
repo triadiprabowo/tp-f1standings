@@ -11,7 +11,7 @@ export class SeasonsComponent implements OnInit {
 
 	public $vm:any;
 
-	constructor(private api:CoreAPIService, private router:Router) { }
+	constructor(public api:CoreAPIService, private router:Router) { }
 
 	ngOnInit() {
 		this.api.data.subscribe(data => {

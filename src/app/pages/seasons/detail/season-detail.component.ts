@@ -8,11 +8,11 @@ import { CoreAPIService } from '../../../shared/services/core-api.service';
 })
 export class SeasonDetailComponent implements OnInit {
 
-	private seasonYear:number;
+	public seasonYear:number;
 	public currentChampion:any = null;
 	public $vm:any;
 
-	constructor(private activatedRoute:ActivatedRoute, private api:CoreAPIService) {
+	constructor(private activatedRoute:ActivatedRoute, public api:CoreAPIService) {
 
 		this.activatedRoute.params.subscribe((param:Params) => {
 			this.seasonYear = param.year;
@@ -28,8 +28,6 @@ export class SeasonDetailComponent implements OnInit {
 
 			if(data.champions.length > 0 && !this.currentChampion) {
 				this.currentChampion = this.filterSeasonWorldChampion(this.seasonYear);
-
-				console.log(this.currentChampion)
 			}
 		});
 
