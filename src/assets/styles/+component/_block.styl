@@ -66,3 +66,24 @@
 		text-transform uppercase
 		margin-bottom $mp_px_md
 		color $color_base_title
+
+@media screen and (min-width 960px) and (max-width 1600px)
+	.block__headline
+		.headline__content
+			margin-top 10%
+			
+			.headline
+				font-size $size_base_headline - 6px
+
+@media screen and (max-width 960px)
+	.block__headline
+		.headline__content
+			margin-top 10%
+			
+			.headline
+				font-size 36px
+	
+	.block
+		.block__title
+			font-size 18px
+			line-height 1.65em
