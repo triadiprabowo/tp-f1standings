@@ -18,6 +18,7 @@
 		vertical-align middle
 		
 		h1
+			margin-top $mp_px_nm - 5px
 			font-size $size_base_title
 			color $color_base_white
 	
@@ -40,18 +41,36 @@
 			&:hover
 				color $color_base_link-normal
 				
-@media screen and (max-width 960px)
+@media screen and (min-width 320px) and (max-width 380px)
 	.tp__header
 		.header__left
-			width 30%
+			width 50%
 			
 			h1
 				font-size 16px
 				font-weight bold
-				mrgin-top $mp_px_sm
 		
 		.navigation
-			width 68%
+			width 48%
+			text-align right
+			
+			a
+				&:link
+					margin-left $mp_px_sm
+
+				
+@media screen and (min-width 380) and (max-width 960px)
+	.tp__header
+		.header__left
+			width 50%
+			
+			h1
+				font-size 16px
+				font-weight bold
+				margin-top $mp_px_nm + 2px
+		
+		.navigation
+			width 48%
 			text-align right
 			
 			a

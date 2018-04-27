@@ -2,9 +2,9 @@
 <public-header></public-header>
 
 <div class="wrapper__outer has--header">
-	<div class="block bg--white" *ngIf="$vm.champions.length > 0">
+	<div class="block bg--dark" *ngIf="$vm.champions.length > 0">
 		<div class="wrapper__inner">
-			<a [routerLink]="'/seasons'">Back to season list</a>
+			<a [routerLink]="'/seasons'">< Back to season list</a>
 
 			<h2 class="block__title">F1 Season {{seasonYear}} World Champion</h2>
 
@@ -38,42 +38,40 @@
 			</table>
 		</div>
 	</div>
+	
+	<div class="wrapper__inner">
+		<section class="block bg--white" *ngIf="$vm.winners">
+			<h2 class="block__title">F1 Season {{seasonYear}} Race Results</h2>
 
-	<section class="block">
-		<div class="wrapper__inner">
-			<ng-container *ngIf="$vm.winners">
-				<h2 class="block__title">F1 Season {{seasonYear}} Race Results</h2>
+			<div class="tp__table-wrapper">
+				<table class="tp__table table--bordered table--text-center table--colored">
+					<thead>
+						<th>Round</th>
+						<th>Grand Prix</th>
+						<th>Circuit</th>
+						<th>Winner</th>
+						<th>Time</th>
+					</thead>
 
-				<div class="tp__table-wrapper">
-					<table class="tp__table table--bordered table--text-center table--colored">
-						<thead>
-							<th>Round</th>
-							<th>Grand Prix</th>
-							<th>Circuit</th>
-							<th>Winner</th>
-							<th>Time</th>
-						</thead>
+					<tbody>
+						<tr *ngFor="let item of $vm.winners.RaceTable.Races" [class.row--active]="isChampion(item)">
+							<td>{{item.round}}</td>
+							<td>{{item.raceName}}</td>
+							<td>{{item.Circuit.circuitName}}</td>
+							<td>
+								<span *ngIf="isChampion(item)"><img class="tp__image size--24h" src="/assets/trophy_s.png" /> {{item.Results[0].Driver.givenName}} {{item.Results[0].Driver.familyName}}</span>
 
-						<tbody>
-							<tr *ngFor="let item of $vm.winners.RaceTable.Races" [class.row--active]="isChampion(item)">
-								<td>{{item.round}}</td>
-								<td>{{item.raceName}}</td>
-								<td>{{item.Circuit.circuitName}}</td>
-								<td>
-									<span *ngIf="isChampion(item)"><img class="tp__image size--24h" src="/assets/trophy_s.png" /> {{item.Results[0].Driver.givenName}} {{item.Results[0].Driver.familyName}}</span>
-
-									<span *ngIf="!isChampion(item)">{{item.Results[0].Driver.givenName}} {{item.Results[0].Driver.familyName}}</span>
-								</td>
-								<td>{{item.Results[0].Time.time}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</ng-container>
-		</div>
+								<span *ngIf="!isChampion(item)">{{item.Results[0].Driver.givenName}} {{item.Results[0].Driver.familyName}}</span>
+							</td>
+							<td>{{item.Results[0].Time.time}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
 
 		<tp-preloader *ngIf="!$vm.winners"></tp-preloader>
-	</section>
+	</div>
 </div>
 
 <!-- Include footer -->

@@ -20,12 +20,12 @@
 			color $color_base_white
 			font-size $size_base_headline
 			line-height 1.35em
-			text-shadow 0 3px 1px rgba(0,0,0,0.8)
+			text-shadow 0 0px 7px rgba(0,0,0,0.6)
 			
 		.subheadline
 			font-size $size_base_subheadline
 			color $color_base_white
-			text-shadow 0 3px 1px rgba(0,0,0,0.8)
+			text-shadow 0 0px 3px rgba(0,0,0,0.8)
 		
 	&.bg--style-1
 		background-image url('assets/bg.jpg')
@@ -43,19 +43,6 @@
 	padding $mp_px_md ($mp_px_md + 5px) $mp_px_lg
 	overflow hidden
 	
-	&.block--center		
-		text-align center
-		
-		*
-			text-align center
-			
-	&.block--middle
-		margin-top 30vh
-		
-	&.bg--white
-		background-color $color_base_white
-		box-shadow 0 0 5px 3px rgba(0,0,0,0.085)
-	
 	.block__subtitle
 		font-weight bold
 		font-size $size_base_subtitle
@@ -66,6 +53,31 @@
 		text-transform uppercase
 		margin-bottom $mp_px_md
 		color $color_base_title
+	
+	&.block--center		
+		text-align center
+		
+		*
+			text-align center
+			
+	&.block--middle		
+		padding 5% 0
+		
+	&.bg--white
+		background-color $color_base_white
+		margin-bottom 3px
+		box-shadow 0 0 5px 3px rgba(0,0,0,0.085)
+		
+	&.bg--dark
+		background-color #616996
+		box-shadow 0 0 5px 3px rgba(0,0,0,0.085)
+		
+		*
+			color $color_base_white
+		
+		.block__title
+			color $color_base_white	
+	
 
 @media screen and (min-width 960px) and (max-width 1600px)
 	.block__headline
@@ -79,8 +91,10 @@
 	.block__headline
 		.headline__content
 			margin-top 10%
+			text-align center
 			
 			.headline
+				margin-top 18.5%
 				font-size 36px
 	
 	.block
